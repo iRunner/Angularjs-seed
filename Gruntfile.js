@@ -3,8 +3,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-bower-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jsdoc');
+
 
   grunt.initConfig({
     'pkg': grunt.file.readJSON('package.json'),
@@ -38,7 +40,7 @@ module.exports = function (grunt) {
           'configFile': 'karma.conf.js',
           'files': [
             '<%= meta.jsFilesForTesting %>',
-            'dist/<%= pkg.namelower %>-<%= pkg.version %>.js'
+            'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.js'
           ],
         }
       },
@@ -47,7 +49,7 @@ module.exports = function (grunt) {
           'configFile': 'karma.conf.js',
           'files': [
             '<%= meta.jsFilesForTesting %>',
-            'dist/<%= pkg.namelower %>-<%= pkg.version %>.min.js'
+            'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.min.js'
           ],
         }
       }
@@ -60,8 +62,27 @@ module.exports = function (grunt) {
     'concat': {
       'dist': {
         'src': ['src/**/*.js'],
-        'dest': 'dist/<%= pkg.namelower %>-<%= pkg.version %>.js'
+        'dest': 'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.js'
       }
+    },
+
+    'bower_concat': {
+        'all': {
+            'dest': 'dist/js/bower-<%= pkg.version %>.js',
+            'mainFiles': {
+
+            },
+            'dependencies': {
+
+            },
+            'exclude': {
+
+            },
+            'include': {
+
+            }
+        }
+
     },
 
     'uglify': {
@@ -71,8 +92,9 @@ module.exports = function (grunt) {
 
       'dist': {
         'files': {
-          'dist/<%= pkg.namelower %>-<%= pkg.version %>.min.js': ['dist/<%= pkg.namelower %>-<%= pkg.version %>.js']
-        }
+          'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.min.js': ['dist/js/<%= pkg.namelower %>-<%= pkg.version %>.js'],
+          'dist/js/bower-<%= pkg.version %>.min.js': ['dist/js/bower-<%= pkg.version %>.js']
+        }    
       }
     },
     'jsdoc': {
@@ -81,6 +103,8 @@ module.exports = function (grunt) {
         'destination': 'doc'
       }
     }
+
+    
 
   });
 
