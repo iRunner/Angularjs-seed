@@ -10,12 +10,13 @@ describe('ExampleController', function() {
         controller = $controller;
         httpBackend = $httpBackend;
     }));
-
-    it('should query the webservice', function() {
+    
+    it('should work', function() {
 
         // We expect the controller to put the right value onto the scope
         expect('First User').toEqual('First User');
 
     });
+
 
 });

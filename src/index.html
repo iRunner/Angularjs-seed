@@ -7,13 +7,21 @@
     <link rel="stylesheet" type="text/css" href="css/style-0.0.1.css">
 </head>
 <body>
-    <div class="input-group input-group-lg">
-         <input type="text" class="form-control" ng-model="phone_number" placeholder="5715558888">
-         <span class="input-group-btn">
-             <button class="btn btn-default" type="button" ng-click="submit(phone_number)">Subscribe!</button>
-         </span>
-         </div><!-- /input-group -->
-         <p>{{phone_number}}</p>
-     </div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <ul class="nav nav-pills" role="tablist">
+    <li role="presentation"><a ui-sref="welcome">Welcome</a></li>
+    <li role="presentation"><a ui-sref="blog">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <div class="row">
+    <div class="span8">
+      <div class="well" ui-view></div>        
+    </div>
+  </div>  
+
 </body>
 </html>

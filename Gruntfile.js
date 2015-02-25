@@ -73,16 +73,15 @@ module.exports = function (grunt) {
         'all': {
             'dest': 'dist/js/bower-<%= pkg.version %>.js',
             'cssDest':'dist/css/bower-<%= pkg.version %>.css',
+            'include': [
+            ],
             'mainFiles': {
 
             },
             'dependencies': {
-
+                'angular-ui-router': 'angular'
             },
             'exclude': {
-
-            },
-            'include': {
 
             }
         }
