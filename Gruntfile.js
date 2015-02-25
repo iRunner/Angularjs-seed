@@ -4,6 +4,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-bower-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jsdoc');
@@ -88,6 +89,15 @@ module.exports = function (grunt) {
 
     },
 
+    'copy': {
+        'main': {
+            'files': [
+                {'nonull':'True', 'src': 'src/index.html', 'dest': 'dist/index.html'},
+                {'expand':'True', 'flatten':'True', 'src':['src/**/*.tpl.html'], 'dest':'dist/templates/', 'filter': 'isFile'}
+            ]
+        }
+    },
+
     'uglify': {
       'options': {
         'mangle': false
@@ -123,6 +133,7 @@ module.exports = function (grunt) {
       'uglify',
       'karma:minified',
       'jsdoc',
+      'copy',
     ]);
 
 };

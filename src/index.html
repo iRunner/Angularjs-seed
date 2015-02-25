@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="ExampleApp">
+<head>
+    <title>Abullah Abdurrah</title>
+    <script src="js/bower-0.0.1.js"></script>
+    <script src="js/personalsite-0.0.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style-0.0.1.css">
+</head>
+<body>
+    <div class="input-group input-group-lg">
+         <input type="text" class="form-control" ng-model="phone_number" placeholder="5715558888">
+         <span class="input-group-btn">
+             <button class="btn btn-default" type="button" ng-click="submit(phone_number)">Subscribe!</button>
+         </span>
+         </div><!-- /input-group -->
+         <p>{{phone_number}}</p>
+     </div>
+</body>
+</html>

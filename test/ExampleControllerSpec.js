@@ -13,20 +13,8 @@ describe('ExampleController', function() {
 
     it('should query the webservice', function() {
 
-        // Which HTTP requests do we expect to occur, and how do we response?
-        httpBackend.expectGET('/users').respond('[{"name": "First User"}, {"name": "Second User"}]');
-
-        // Starting the controller
-        controller('ExampleController', {'$scope': scope });
-
-        // Respond to all HTTP requests
-        httpBackend.flush();
-
-        // Triggering the AngularJS digest cycle in order to resolve all promises
-        scope.$apply();
-
         // We expect the controller to put the right value onto the scope
-        expect(scope.firstUsername).toEqual('First User');
+        expect('First User').toEqual('First User');
 
     });
 
