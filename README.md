@@ -35,3 +35,11 @@ Have SASS extend your bootstrap ~ sadly still have to use the `@include` functio
 ## Angular-ui-router
 
 [magic](https://github.com/angular-ui/ui-router)
+
+
+# Building Project
+
+Dependencies: 
+  npm
+  sass
+
