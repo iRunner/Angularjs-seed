@@ -43,3 +43,5 @@ Dependencies:
   npm
   sass
 
+$npm install
+
