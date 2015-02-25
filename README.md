@@ -1,4 +1,4 @@
-#  Angularjs ~ And everything Else
+#  Angularjs ~ And everything Else &nbsp;[![Build Status](https://travis-ci.org/iRunner/Angularjs-seed.svg?branch=master)](https://travis-ci.org/iRunner/Angularjs-seed)
 
 I find front end web development to be super open and everyone has their own
 best practices. This is great ~ and so I came up with my own template based off
