@@ -3,6 +3,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-bower-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jsdoc');
@@ -13,14 +14,7 @@ module.exports = function (grunt) {
 
     'meta': {
       'jsFilesForTesting': [
-        'bower_components/jquery/jquery.js',
-        'bower_components/angular/angular.js',
-        'bower_components/angular-route/angular-route.js',
-        'bower_components/angular-sanitize/angular-sanitize.js',
-        'bower_components/angular-mocks/angular-mocks.js',
-        'bower_components/restangular/dist/restangular.js',
-        'bower_components/underscore/underscore.js',
-        'bower_components/underscore/underscore.js',
+        'dist/js/bower-<%= pkg.version %>.js',
         'test/**/*Spec.js'
       ]
     },
@@ -65,10 +59,19 @@ module.exports = function (grunt) {
         'dest': 'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.js'
       }
     },
+    'sass': {
+        'dist':{
+            'files':[{
+                'src':['src/**/*.scss'],
+                'dest':'dist/css/style-<%= pkg.version %>.css',
+            }]
+        }
+    },
 
     'bower_concat': {
         'all': {
             'dest': 'dist/js/bower-<%= pkg.version %>.js',
+            'cssDest':'dist/css/bower-<%= pkg.version %>.css',
             'mainFiles': {
 
             },
@@ -112,6 +115,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build',
     [
       'jshint',
+      'bower_concat',
+      'sass',
       'karma:development',
       'concat',
       'karma:dist',

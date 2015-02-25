@@ -37,6 +37,12 @@ bower_components
 .bower-registry
 .bower-tmp
 
+# Created by https://www.gitignore.io
+
+### Sass ###
+.sass-cache
+*.css.map
+
 
 
 ## docs
