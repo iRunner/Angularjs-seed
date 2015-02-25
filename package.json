@@ -1,8 +1,8 @@
 {
-  "name": "personalSite",
-  "namelower": "personalsite",
+  "name": "Angular Template",
+  "namelower": "angulartemplate",
   "version": "0.0.1",
-  "description": "Abdullah Abdurrah's person site ~ made with angular",
+  "description": "Abdullah Abdurrah's Angularjs Frontend Template",
   "readme": "README.md",
   "repository": {
     "type": "git",
