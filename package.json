@@ -6,7 +6,7 @@
   "readme": "README.md",
   "repository": {
     "type": "git",
-    "url": "git@github.com:iRunner/iRunner.github.io.git"
+    "url": "git@github.com:iRunner/Angularjs-seed.git"
   },
   "devDependencies": {
     "grunt": "0.4.2",
