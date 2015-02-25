@@ -1,6 +1,3 @@
-"FullStack Web-dev"
-###########################
-
 #  Angularjs ~ And everything Else
 
 ## Angular Shell
