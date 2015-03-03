@@ -8,6 +8,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bower-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jsdoc');
+  grunt.loadNpmTasks('grunt-angular-templates');
 
 
   grunt.initConfig({
@@ -88,14 +89,14 @@ module.exports = function (grunt) {
 
     },
 
-    'copy': {
-        'main': {
-            'files': [
-                {'nonull':'True', 'src': 'src/index.html', 'dest': 'dist/index.html'},
-                {'expand':'True', 'flatten':'True', 'src':['src/**/*.tpl.html'], 'dest':'dist/templates/', 'filter': 'isFile'}
-            ]
+    'ngtemplates': {
+        'app': {
+            'src': 'src/**.html',
+            'dest': 'dist/templates/templates-<%= pkg.version %>.js'
         }
+
     },
+    
 
     'uglify': {
       'options': {
@@ -106,6 +107,7 @@ module.exports = function (grunt) {
         'files': {
           'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.min.js': ['dist/js/<%= pkg.namelower %>-<%= pkg.version %>.js'],
           'dist/js/bower-<%= pkg.version %>.min.js': ['dist/js/bower-<%= pkg.version %>.js']
+          'dist/templates/templates-<%= pkg.version %>.min.js': ['dist/templates/templates-<%= pkg.version %>.js'],
         }    
       }
     },
@@ -132,7 +134,7 @@ module.exports = function (grunt) {
       'uglify',
       'karma:minified',
       'jsdoc',
-      'copy',
+      'ngtemplates',
     ]);
 
 };
