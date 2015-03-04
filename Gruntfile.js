@@ -91,9 +91,20 @@ module.exports = function (grunt) {
 
     'ngtemplates': {
         'app': {
-            'src': 'src/**.html',
-            'dest': 'dist/templates/templates-<%= pkg.version %>.js'
-        }
+            'cwd' : 'src',
+            'src': ['**/*.tpl.html'],
+            'dest': 'dist/templates/templates-<%= pkg.version %>.js',
+            htmlmin: {
+              collapseBooleanAttributes:      true,
+              collapseWhitespace:             true,
+              removeAttributeQuotes:          true,
+              removeComments:                 true, // Only if you don't use comment directives! 
+              removeEmptyAttributes:          true,
+              removeRedundantAttributes:      true,
+              removeScriptTypeAttributes:     true,
+              removeStyleLinkTypeAttributes:  true
+            }
+          }
 
     },
     
@@ -106,7 +117,7 @@ module.exports = function (grunt) {
       'dist': {
         'files': {
           'dist/js/<%= pkg.namelower %>-<%= pkg.version %>.min.js': ['dist/js/<%= pkg.namelower %>-<%= pkg.version %>.js'],
-          'dist/js/bower-<%= pkg.version %>.min.js': ['dist/js/bower-<%= pkg.version %>.js']
+          'dist/js/bower-<%= pkg.version %>.min.js': ['dist/js/bower-<%= pkg.version %>.js'],
           'dist/templates/templates-<%= pkg.version %>.min.js': ['dist/templates/templates-<%= pkg.version %>.js'],
         }    
       }
@@ -116,7 +127,15 @@ module.exports = function (grunt) {
       'options': {
         'destination': 'doc'
       }
-    }
+    },
+
+    'copy': {
+        'main': {
+            'files': [
+                {'nonull':'True', 'src': 'src/index.html', 'dest': 'dist/index.html'},
+            ]
+        }
+    },
 
     
 
@@ -127,6 +146,8 @@ module.exports = function (grunt) {
     [
       'jshint',
       'bower_concat',
+      'ngtemplates',
+      'copy',
       'sass',
       'karma:development',
       'concat',
@@ -134,7 +155,6 @@ module.exports = function (grunt) {
       'uglify',
       'karma:minified',
       'jsdoc',
-      'ngtemplates',
     ]);
 
 };

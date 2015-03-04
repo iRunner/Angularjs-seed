@@ -2,26 +2,24 @@
 <html ng-app="ExampleApp">
 <head>
     <title>Abullah Abdurrah</title>
-    <script src="js/bower-0.0.1.js"></script>
-    <script src="js/angulartemplate-0.0.1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style-0.0.1.css">
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-bottom">
-  <div class="container">
-    <ul class="nav nav-pills" role="tablist">
-    <li role="presentation"><a ui-sref="welcome">Welcome</a></li>
-    <li role="presentation"><a ui-sref="blog">Blog</a></li>
-    </ul>
-  </div>
-</nav>
+
+<div ui-view></div>        
 
 
-  <div class="row">
-    <div class="span8">
-      <div class="well" ui-view></div>        
-    </div>
-  </div>  
+<!-- dev -->
+<script src="js/bower-0.0.1.js"></script>
+<script src="js/angulartemplate-0.0.1.js"></script>
+<script src="templates/templates-0.0.1.js"></script>
+<!-- end dev -->
+
+<!-- pro >
+<script src="js/bower-0.0.1.min.js"></script>
+<script src="js/angulartemplate-0.0.1.min.js"></script>
+<script src="templates/templates-0.0.1.min.js"></script>
+<!-- end pro -->
 
 </body>
 </html>
