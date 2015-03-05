@@ -90,6 +90,10 @@ module.exports = function (grunt) {
     },
 
     'ngtemplates': {
+        'options': {
+          'module':'ExampleApp'
+
+        },
         'app': {
             'cwd' : 'src',
             'src': ['**/*.tpl.html'],
